@@ -2,6 +2,8 @@ Role Name
 =========
 
 A brief description of the role goes here.
+https://docs.ansible.com/ansible/latest/collections/community/general/splunk_callback.html
+https://splunkbase.splunk.com/app/4023/
 
 Requirements
 ------------
