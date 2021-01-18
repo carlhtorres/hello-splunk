@@ -4,9 +4,78 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: instance
-    image: docker.io/pycontribs/centos:8
+  - name: master
+    image: splunk/splunk:7.2
     pre_build_image: true
+    ports:
+      - 8000:8000
+    environment:
+      - SPLUNK_PASSWORD=5p1NK
+      - SPLUNK_START_ARGS=--accept-license
+  - name: deployer
+    image: splunk/splunk:7.2
+    pre_build_image: true
+    ports:
+      - 8000:8000
+    environment:
+      - SPLUNK_PASSWORD=5p1NK
+      - SPLUNK_START_ARGS=--accept-license
+  - name: deployment_server
+    image: splunk/splunk:7.2
+    pre_build_image: true
+    ports:
+      - 8000:8000
+    environment:
+      - SPLUNK_PASSWORD=5p1NK
+      - SPLUNK_START_ARGS=--accept-license
+  - name: heavy_forwarder
+    image: splunk/splunk:7.2
+    pre_build_image: true
+    ports:
+      - 8000:8000
+    environment:
+      - SPLUNK_PASSWORD=5p1NK
+      - SPLUNK_START_ARGS=--accept-license
+  - name: indexer
+    image: splunk/splunk:7.2
+    pre_build_image: true
+    ports:
+      - 8000:8000
+    environment:
+      - SPLUNK_PASSWORD=5p1NK
+      - SPLUNK_START_ARGS=--accept-license
+  - name: license_master
+    image: splunk/splunk:7.2
+    pre_build_image: true
+    ports:
+      - 8000:8000
+    environment:
+      - SPLUNK_PASSWORD=5p1NK
+      - SPLUNK_START_ARGS=--accept-license
+  - name: search_head
+    image: splunk/splunk:7.2
+    pre_build_image: true
+    ports:
+      - 8000:8000
+    environment:
+      - SPLUNK_PASSWORD=5p1NK
+      - SPLUNK_START_ARGS=--accept-license
+  - name: search_head_captain
+    image: splunk/splunk:7.2
+    pre_build_image: true
+    ports:
+      - 8000:8000
+    environment:
+      - SPLUNK_PASSWORD=5p1NK
+      - SPLUNK_START_ARGS=--accept-license
+  - name: universal_forwarder
+    image: splunk/splunk:7.2
+    pre_build_image: true
+    ports:
+      - 8000:8000
+    environment:
+      - SPLUNK_PASSWORD=5p1NK
+      - SPLUNK_START_ARGS=--accept-license
 provisioner:
   name: ansible
 verifier:
