@@ -14,9 +14,9 @@ platforms:
     groups:
       - master
       - deployer
-      - deployment_server
-      - license-master
-      - search_head_captain
+      - deploymentserver
+      - licensemaster
+      - searchheadcaptain
   - name: splunk02
     image: splunk/splunk:7.2
     pre_build_image: true
@@ -25,7 +25,7 @@ platforms:
     env-file:
       - splunk.env
     groups:
-      - heavy_forwarder
+      - heavyforwarder
   - name: splunk03
     image: splunk/splunk:7.2
     pre_build_image: true
@@ -43,8 +43,8 @@ platforms:
     env-file:
       - splunk.env
     groups:
-      - search_head
-  - name: splun05
+      - searchhead
+  - name: splunk05
     image: splunk/splunk:7.2
     pre_build_image: true
     ports:
@@ -52,7 +52,7 @@ platforms:
     env-file:
       - splunk.env
     groups:
-      - universal_forwarder
+      - universalforwarder
 provisioner:
   name: ansible
 verifier:
