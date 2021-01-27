@@ -9,73 +9,64 @@ platforms:
     pre_build_image: true
     ports:
       - 8000:8000
-    environment:
-      - SPLUNK_PASSWORD=5p1NK
-      - SPLUNK_START_ARGS=--accept-license
+    env-file:
+      - splunk.env
   - name: deployer
     image: splunk/splunk:7.2
     pre_build_image: true
     ports:
       - 8000:8000
-    environment:
-      - SPLUNK_PASSWORD=5p1NK
-      - SPLUNK_START_ARGS=--accept-license
+    env-file:
+      - splunk.env
   - name: deployment_server
     image: splunk/splunk:7.2
     pre_build_image: true
     ports:
       - 8000:8000
-    environment:
-      - SPLUNK_PASSWORD=5p1NK
-      - SPLUNK_START_ARGS=--accept-license
+    env-file:
+      - splunk.env
   - name: heavy_forwarder
     image: splunk/splunk:7.2
     pre_build_image: true
     ports:
       - 8000:8000
-    environment:
-      - SPLUNK_PASSWORD=5p1NK
-      - SPLUNK_START_ARGS=--accept-license
+    env-file:
+      - splunk.env
   - name: indexer
     image: splunk/splunk:7.2
     pre_build_image: true
     ports:
       - 8000:8000
-    environment:
-      - SPLUNK_PASSWORD=5p1NK
-      - SPLUNK_START_ARGS=--accept-license
+    env-file:
+      - splunk.env
   - name: license_master
     image: splunk/splunk:7.2
     pre_build_image: true
     ports:
       - 8000:8000
-    environment:
-      - SPLUNK_PASSWORD=5p1NK
-      - SPLUNK_START_ARGS=--accept-license
+    env-file:
+      - splunk.env
   - name: search_head
     image: splunk/splunk:7.2
     pre_build_image: true
     ports:
       - 8000:8000
-    environment:
-      - SPLUNK_PASSWORD=5p1NK
-      - SPLUNK_START_ARGS=--accept-license
+    env-file:
+      - splunk.env
   - name: search_head_captain
     image: splunk/splunk:7.2
     pre_build_image: true
     ports:
       - 8000:8000
-    environment:
-      - SPLUNK_PASSWORD=5p1NK
-      - SPLUNK_START_ARGS=--accept-license
+    env-file:
+      - splunk.env
   - name: universal_forwarder
     image: splunk/splunk:7.2
     pre_build_image: true
     ports:
       - 8000:8000
-    environment:
-      - SPLUNK_PASSWORD=5p1NK
-      - SPLUNK_START_ARGS=--accept-license
+    env-file:
+      - splunk.env
 provisioner:
   name: ansible
 verifier:
