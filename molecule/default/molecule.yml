@@ -4,69 +4,55 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: master
+  - name: splunk01
     image: splunk/splunk:7.2
     pre_build_image: true
     ports:
       - 8000:8000
     env-file:
       - splunk.env
-  - name: deployer
+    groups:
+      - master
+      - deployer
+      - deployment_server
+      - license-master
+      - search_head_captain
+  - name: splunk02
     image: splunk/splunk:7.2
     pre_build_image: true
     ports:
       - 8000:8000
     env-file:
       - splunk.env
-  - name: deployment_server
+    groups:
+      - heavy_forwarder
+  - name: splunk03
     image: splunk/splunk:7.2
     pre_build_image: true
     ports:
       - 8000:8000
     env-file:
       - splunk.env
-  - name: heavy_forwarder
+    groups:
+      - indexer
+  - name: splunk04
     image: splunk/splunk:7.2
     pre_build_image: true
     ports:
       - 8000:8000
     env-file:
       - splunk.env
-  - name: indexer
+    groups:
+      - search_head
+  - name: splun05
     image: splunk/splunk:7.2
     pre_build_image: true
     ports:
       - 8000:8000
     env-file:
       - splunk.env
-  - name: license_master
-    image: splunk/splunk:7.2
-    pre_build_image: true
-    ports:
-      - 8000:8000
-    env-file:
-      - splunk.env
-  - name: search_head
-    image: splunk/splunk:7.2
-    pre_build_image: true
-    ports:
-      - 8000:8000
-    env-file:
-      - splunk.env
-  - name: search_head_captain
-    image: splunk/splunk:7.2
-    pre_build_image: true
-    ports:
-      - 8000:8000
-    env-file:
-      - splunk.env
-  - name: universal_forwarder
-    image: splunk/splunk:7.2
-    pre_build_image: true
-    ports:
-      - 8000:8000
-    env-file:
-      - splunk.env
+    groups:
+      - universal_forwarder
 provisioner:
   name: ansible
 verifier:
